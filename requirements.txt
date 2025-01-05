@@ -2,3 +2,4 @@ streamlit
 google-generativeai
 transformers
 langchain
+python-dotenv
