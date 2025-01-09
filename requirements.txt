@@ -3,3 +3,4 @@ google-generativeai
 transformers
 langchain
 python-dotenv
+youtube-search
