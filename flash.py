@@ -41,9 +41,11 @@ def generate_course(sub_input, time):
     {{
       "course_title": "",
       "description": "",
+      "needed_time": "",
       "modules": [
         {{
           "module_title": "",
+          "elapsed_time": "",
           "topics": [
               "",
               "",
@@ -54,6 +56,7 @@ def generate_course(sub_input, time):
         }},
         {{
           "module_title": "",
+          "elapsed_time": "",
           "topics": [
               "",
               "",
@@ -88,7 +91,7 @@ def generate_course(sub_input, time):
     markdown += f"{res['prerequisites']}\n\n"
     markdown += "## Modules\n\n"
     markdown += "| Module Title | Topics | YouTube Link |\n"
-    markdown += "|--------------|--------|--------------|\n"
+    markdown += "|--------------|-------------|--------|\n"
 
     for module in res["modules"]:
         topics = "<br>".join(module["topics"])
@@ -96,13 +99,13 @@ def generate_course(sub_input, time):
         markdown += f"| {module['module_title']} | {topics} | [Watch here]({ytlink}) |\n"
 
     # Display Markdown
-    st.markdown(markdown)
+    st.markdown(markdown,unsafe_allow_html=True)  
 
 # Streamlit UI
-st.title("Course Generator")
+st.title("Course roadmap predictor")
 
 sub_input = st.text_input("Enter the name of subject:")
-time = st.number_input("Enter the time in hours:", min_value=1, step=1)
+time = st.number_input("Enter the time in hours:", min_value=5, step=1)
 
 if st.button("Generate"):
     generate_course(sub_input, int(time))
