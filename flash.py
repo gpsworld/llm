@@ -41,7 +41,7 @@ def generate_course(sub_input, time):
     {{
       "course_title": "",
       "description": "",
-      "needed_time": "",
+      "required_time": "",
       "modules": [
         {{
           "module_title": "",
@@ -90,13 +90,14 @@ def generate_course(sub_input, time):
     markdown += "## Prerequisites\n\n"
     markdown += f"{res['prerequisites']}\n\n"
     markdown += "## Modules\n\n"
-    markdown += "| Module Title | Topics | YouTube Link |\n"
-    markdown += "|--------------|-------------|--------|\n"
+    markdown += "| Module Title |Elapsed time | Topics | YouTube Link |\n"
+    markdown += "|--------------|-------------|--------|--------------|\n"
+    
 
     for module in res["modules"]:
         topics = "<br>".join(module["topics"])
         ytlink = module.get("ytlink", "No link available")
-        markdown += f"| {module['module_title']} | {topics} | [Watch here]({ytlink}) |\n"
+        markdown += f"| {module['module_title']} |{module['elapsed_time']}| {topics} | [Watch here]({ytlink}) |\n"
 
     # Display Markdown
     st.markdown(markdown,unsafe_allow_html=True)  
