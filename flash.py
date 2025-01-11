@@ -90,8 +90,8 @@ def generate_course(sub_input, time):
     markdown += "## Prerequisites\n\n"
     markdown += f"{res['prerequisites']}\n\n"
     markdown += "## Modules\n\n"
-    markdown += "| Module Title |Elapsed time | Topics | YouTube Link |\n"
-    markdown += "|--------------|-------------|--------|--------------|\n"
+    markdown += "| Module Titles |Elapsed time | Topics | YouTube Link |\n"
+    markdown += "|---------------|-------------|--------|--------------|\n"
     
 
     for module in res["modules"]:
@@ -103,10 +103,10 @@ def generate_course(sub_input, time):
     st.markdown(markdown,unsafe_allow_html=True)  
 
 # Streamlit UI
-st.title("Course roadmap predictor")
+st.title("Roadmap generator ")
 
-sub_input = st.text_input("Enter the name of subject:")
-time = st.number_input("Enter the time in hours:", min_value=5, step=1)
+sub_input = st.text_input("Enter the name of subject:", placeholder = 'Generate a roadmap for...')
+time = st.number_input("Enter the time in hours:",min_value=5, step=1)
 
 if st.button("Generate"):
     generate_course(sub_input, int(time))
