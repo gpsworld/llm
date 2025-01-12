@@ -10,6 +10,8 @@ from youtube_search import YoutubeSearch
 load_dotenv()
 genai.configure(api_key=os.environ["api_key"])
 
+
+
 # Create the model
 generation_config = {
     "temperature": 1,
@@ -103,10 +105,37 @@ def generate_course(sub_input, time):
     st.markdown(markdown,unsafe_allow_html=True)  
 
 # Streamlit UI
-st.title("Roadmap generator ")
+# st.title("Roadmap generator ")
 
-sub_input = st.text_input("Enter the name of subject:", placeholder = 'Generate a roadmap for...')
-time = st.number_input("Enter the time in hours:",min_value=5, step=1)
+# sub_input = st.text_input("Enter the name of subject:", placeholder = 'Generate a roadmap for...')
+# time = st.number_input("Enter the time in hours:",min_value=5, step=1)
+
+st.title("Roadmap Generator")
+st.write("Generate a detailed learning roadmap for any subject!")
+
+sub_input = st.text_input("Enter the subject name:", placeholder="E.g., Data Science, Web Development")
+time = st.number_input("Enter the time in hours:", min_value=5, step=1)
+
 
 if st.button("Generate"):
     generate_course(sub_input, int(time))
+
+
+st.write(""" <hr> 
+        <Style>
+         body{
+        color: white;
+        
+         }
+         a{
+         color: white;
+         text-decoration: none;
+         }
+         hr{
+        left:0;
+         bottom:0;
+         }
+        </style>
+         """, unsafe_allow_html=True)
+
+st.write("""Created with ❤️ by <a href = "https://github.com/gpsworld">gpsworld</a>""", unsafe_allow_html=True)
