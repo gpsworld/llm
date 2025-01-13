@@ -137,4 +137,4 @@ st.write(""" <hr>
         </style>
          """, unsafe_allow_html=True)
 st.write("""Created with ❤️ by <a href = "https://github.com/gpsworld">gpsworld</a>""", unsafe_allow_html=True)
-st.write("""Created with ❤️ by <a href = "https://github.com/gpsworld">gpsworld</a>""", unsafe_allow_html=True)
+
