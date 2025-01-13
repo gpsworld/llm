@@ -119,3 +119,4 @@ time = st.number_input("Enter the time in hours:", min_value=5, step=1)
 
 if st.button("Generate"):
     generate_course(sub_input, int(time))
+st.write("""Created with ❤️ by <a href = "https://github.com/gpsworld">gpsworld</a>""", unsafe_allow_html=True)
